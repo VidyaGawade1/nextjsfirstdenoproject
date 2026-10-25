@@ -1,6 +1,7 @@
-
 import Image from "next/image";
 import Link from "next/link";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const services = [
   {
@@ -11,11 +12,7 @@ const services = [
     imageAlt: "Desktop monitor and tablet displaying responsive website designs",
     description:
       "We build fast, responsive and visually stunning websites that deliver exceptional user experiences.",
-    features: [
-      "Responsive Design",
-      "Business Websites",
-      "Modern UI/UX",
-    ],
+    features: ["Responsive Design", "Business Websites", "Modern UI/UX"],
     color: "from-blue-600 to-indigo-700",
   },
   {
@@ -26,11 +23,7 @@ const services = [
     imageAlt: "Laptop showing search results and growth analytics beside a magnifying glass",
     description:
       "Increase your online visibility and reach customers searching for your products and services.",
-    features: [
-      "Keyword Research",
-      "On-Page SEO",
-      "Website Audits",
-    ],
+    features: ["Keyword Research", "On-Page SEO", "Website Audits"],
     color: "from-emerald-600 to-teal-700",
   },
   {
@@ -41,11 +34,7 @@ const services = [
     imageAlt: "Laptop and smartphone displaying campaign content and audience analytics",
     description:
       "Connect with your audience through targeted campaigns and creative marketing strategies.",
-    features: [
-      "Social Media Marketing",
-      "Paid Advertising",
-      "Content Strategy",
-    ],
+    features: ["Social Media Marketing", "Paid Advertising", "Content Strategy"],
     color: "from-violet-600 to-purple-700",
   },
   {
@@ -56,11 +45,7 @@ const services = [
     imageAlt: "Brand stationery, geometric logo studies and warm color swatches",
     description:
       "Give your business a memorable visual identity that builds trust and communicates your values.",
-    features: [
-      "Logo Design",
-      "Brand Guidelines",
-      "Visual Identity",
-    ],
+    features: ["Logo Design", "Brand Guidelines", "Visual Identity"],
     color: "from-orange-500 to-rose-600",
   },
 ];
@@ -79,15 +64,12 @@ export default function ServicesPage() {
 
           <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl">
             Smart Digital Solutions for
-            <span className="text-blue-400">
-              {" "}Growing Brands.
-            </span>
+            <span className="text-blue-400"> Growing Brands.</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            From creative website design to powerful digital
-            marketing, we help businesses create meaningful
-            digital experiences.
+            From creative website design to powerful digital marketing, we help
+            businesses create meaningful digital experiences.
           </p>
 
           <Link
@@ -103,9 +85,7 @@ export default function ServicesPage() {
       <section className="bg-slate-50 px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
-            <p className="font-semibold text-blue-600">
-              What We Do
-            </p>
+            <p className="font-semibold text-blue-600">What We Do</p>
             <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
               Our Creative Services
             </h2>
@@ -122,7 +102,7 @@ export default function ServicesPage() {
               >
                 <div className="relative h-64 overflow-hidden bg-slate-100">
                   <Image
-                    src={service.image}
+                    src={`${basePath}${service.image}`}
                     alt={service.imageAlt}
                     fill
                     sizes="(min-width: 1152px) 544px, (min-width: 768px) calc((100vw - 80px) / 2), calc(100vw - 48px)"
@@ -193,19 +173,14 @@ export default function ServicesPage() {
                 text: "We bring your digital experience to life and help it grow.",
               },
             ].map((step) => (
-              <div
-                key={step.number}
-                className="rounded-2xl bg-slate-100 p-8"
-              >
+              <div key={step.number} className="rounded-2xl bg-slate-100 p-8">
                 <span className="text-4xl font-bold text-blue-600">
                   {step.number}
                 </span>
                 <h3 className="mt-5 text-xl font-bold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-4 leading-7 text-slate-600">
-                  {step.text}
-                </p>
+                <p className="mt-4 leading-7 text-slate-600">{step.text}</p>
               </div>
             ))}
           </div>
@@ -218,8 +193,8 @@ export default function ServicesPage() {
           Let&apos;s Build Something Great Together.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-blue-100">
-          Have an idea for your next digital project?
-          We&apos;d love to hear from you.
+          Have an idea for your next digital project? We&apos;d love to hear
+          from you.
         </p>
 
         <Link
