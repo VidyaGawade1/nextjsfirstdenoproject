@@ -1,36 +1,32 @@
-import "tailwindcss";
 import Image from "next/image";
 import Link from "next/link";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const services = [
   {
     title: "Website Design",
     image: "/images/home/web-design.jpg",
-    description:
-      "Beautiful, responsive websites for modern businesses.",
+    description: "Beautiful, responsive websites for modern businesses.",
   },
   {
     title: "SEO Optimization",
     image: "/images/home/seo.jpg",
-    description:
-      "Improve online visibility and reach more customers.",
+    description: "Improve online visibility and reach more customers.",
   },
   {
     title: "Digital Marketing",
     image: "/images/home/marketing.jpg",
-    description:
-      "Creative campaigns that help brands grow.",
+    description: "Creative campaigns that help brands grow.",
   },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-
       {/* Hero Section */}
       <section className="bg-slate-950 px-6 py-20 text-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-
           <div>
             <p className="mb-4 font-semibold uppercase tracking-widest text-blue-400">
               Creative Digital Agency
@@ -41,8 +37,8 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 text-lg text-slate-300">
-              Modern websites, creative strategies and digital
-              solutions to grow your business.
+              Modern websites, creative strategies and digital solutions to
+              grow your business.
             </p>
 
             <Link
@@ -55,7 +51,7 @@ export default function Home() {
 
           <div>
             <Image
-              src="/images/home/hero.png"
+              src={`${basePath}/images/home/hero.png`}
               alt="Digital creative workspace"
               width={650}
               height={500}
@@ -63,13 +59,11 @@ export default function Home() {
               priority
             />
           </div>
-
         </div>
       </section>
 
       {/* Services Section */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-
         <div className="mb-12 text-center">
           <p className="font-semibold uppercase tracking-widest text-blue-600">
             What We Do
@@ -85,15 +79,13 @@ export default function Home() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-
           {services.map((service) => (
             <div
               key={service.title}
               className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-lg"
             >
-
               <Image
-                src={service.image}
+                src={`${basePath}${service.image}`}
                 alt={service.title}
                 width={500}
                 height={350}
@@ -101,7 +93,6 @@ export default function Home() {
               />
 
               <div className="p-6">
-
                 <h3 className="text-xl font-bold text-slate-900">
                   {service.title}
                 </h3>
@@ -109,23 +100,17 @@ export default function Home() {
                 <p className="mt-3 leading-7 text-gray-600">
                   {service.description}
                 </p>
-
               </div>
-
             </div>
           ))}
-
         </div>
-
       </section>
 
       {/* Call To Action Section */}
       <section className="bg-blue-50 px-6 py-20 text-center">
-
         <div className="mx-auto max-w-3xl">
-
           <p className="font-semibold uppercase tracking-widest text-blue-600">
-            Let's Work Together
+            Let&apos;s Work Together
           </p>
 
           <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
@@ -133,7 +118,7 @@ export default function Home() {
           </h2>
 
           <p className="mt-4 text-lg text-gray-600">
-            Let's build something great together.
+            Let&apos;s build something great together.
           </p>
 
           <Link
@@ -142,11 +127,8 @@ export default function Home() {
           >
             Contact Us
           </Link>
-
         </div>
-
       </section>
-
     </main>
   );
 }
